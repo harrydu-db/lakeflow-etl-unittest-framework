@@ -1,0 +1,193 @@
+{
+  "script_name": "sample.sql",
+  "parser_version": "SQLGlot",
+  "bteq_statements": [
+    "CREATE VOLATILE TABLE TEMP_SALES_DATA AS\n    (SELECT DISTINCT p.product_id,\n                     p.product_name,\n                     p.category,\n                     s.sale_id,\n                     s.sale_date,\n                     s.quantity,\n                     s.unit_price,\n                     s.total_amount\n     FROM DEMO.PRODUCT_V p\n     LEFT OUTER JOIN DEMO.SALES_FACT s ON p.product_id = s.product_id\n     WHERE p.product_status = 'ACTIVE') WITH DATA ON\nCOMMIT PRESERVE ROWS;",
+    "BT;",
+    "UPDATE A\nFROM DEMO.PRODUCT_SUMMARY A,\n\n    (SELECT product_id,\n            COUNT(*) AS sale_count,\n            SUM(total_amount) AS total_revenue\n     FROM TEMP_SALES_DATA\n     GROUP BY product_id) B\nSET sale_count = B.sale_count,\n    total_revenue = B.total_revenue,\n    last_updated = CURRENT_TIMESTAMP\nWHERE A.product_id = B.product_id;",
+    "INSERT INTO DEMO.PRODUCT_DETAILS (product_id, product_name, category, sale_count, total_revenue, created_date, last_updated)\nSELECT product_id,\n       product_name,\n       category,\n       COUNT(*) AS sale_count,\n       SUM(total_amount) AS total_revenue,\n       CURRENT_DATE AS created_date,\n                       CURRENT_TIMESTAMP AS last_updated\nFROM TEMP_SALES_DATA\nGROUP BY product_id,\n         product_name,\n         category;",
+    "INSERT INTO DEMO.SALES_REPORTING (report_date, product_id, product_name, category_name, sale_count, total_revenue, region)\nSELECT CURRENT_DATE AS report_date,\n                       p.product_id,\n                       p.product_name,\n                       c.category_name,\n                       COUNT(s.sale_id) AS sale_count,\n                       SUM(s.total_amount) AS total_revenue,\n                       r.region_name AS region\nFROM TEMP_SALES_DATA p\nLEFT OUTER JOIN DEMO.CATEGORY c ON p.category = c.category_code\nLEFT OUTER JOIN DEMO.SALES_FACT s ON p.product_id = s.product_id\nLEFT OUTER JOIN DEMO.REGION r ON s.region_id = r.region_id\nGROUP BY p.product_id,\n         p.product_name,\n         c.category_name,\n         r.region_name;",
+    "INSERT INTO DEMO.AUDIT_LOG (process_name, TABLE_NAME, record_count, process_date, status)\nSELECT 'SALES_ETL' AS process_name,\n       'DEMO.SALES_REPORTING' AS TABLE_NAME,\n       COUNT(*) AS record_count,\n       CURRENT_DATE AS process_date,\n                       'COMPLETED' AS status\nFROM DEMO.SALES_REPORTING\nWHERE report_date = CURRENT_DATE;",
+    "ET;"
+  ],
+  "tables": {
+    "DEMO.AUDIT_LOG": {
+      "source": [
+        {
+          "name": "DEMO.SALES_REPORTING",
+          "operation": [
+            5
+          ]
+        }
+      ],
+      "target": [],
+      "is_volatile": false
+    },
+    "DEMO.CATEGORY": {
+      "source": [],
+      "target": [
+        {
+          "name": "DEMO.SALES_REPORTING",
+          "operation": [
+            4
+          ]
+        }
+      ],
+      "is_volatile": false
+    },
+    "DEMO.PRODUCT_DETAILS": {
+      "source": [
+        {
+          "name": "TEMP_SALES_DATA",
+          "operation": [
+            3
+          ]
+        }
+      ],
+      "target": [],
+      "is_volatile": false
+    },
+    "DEMO.PRODUCT_SUMMARY": {
+      "source": [
+        {
+          "name": "DEMO.PRODUCT_SUMMARY",
+          "operation": [
+            2
+          ]
+        },
+        {
+          "name": "TEMP_SALES_DATA",
+          "operation": [
+            2
+          ]
+        }
+      ],
+      "target": [
+        {
+          "name": "DEMO.PRODUCT_SUMMARY",
+          "operation": [
+            2
+          ]
+        }
+      ],
+      "is_volatile": false
+    },
+    "DEMO.PRODUCT_V": {
+      "source": [],
+      "target": [
+        {
+          "name": "TEMP_SALES_DATA",
+          "operation": [
+            0
+          ]
+        }
+      ],
+      "is_volatile": false
+    },
+    "DEMO.REGION": {
+      "source": [],
+      "target": [
+        {
+          "name": "DEMO.SALES_REPORTING",
+          "operation": [
+            4
+          ]
+        }
+      ],
+      "is_volatile": false
+    },
+    "DEMO.SALES_FACT": {
+      "source": [],
+      "target": [
+        {
+          "name": "TEMP_SALES_DATA",
+          "operation": [
+            0
+          ]
+        },
+        {
+          "name": "DEMO.SALES_REPORTING",
+          "operation": [
+            4
+          ]
+        }
+      ],
+      "is_volatile": false
+    },
+    "DEMO.SALES_REPORTING": {
+      "source": [
+        {
+          "name": "TEMP_SALES_DATA",
+          "operation": [
+            4
+          ]
+        },
+        {
+          "name": "DEMO.CATEGORY",
+          "operation": [
+            4
+          ]
+        },
+        {
+          "name": "DEMO.SALES_FACT",
+          "operation": [
+            4
+          ]
+        },
+        {
+          "name": "DEMO.REGION",
+          "operation": [
+            4
+          ]
+        }
+      ],
+      "target": [
+        {
+          "name": "DEMO.AUDIT_LOG",
+          "operation": [
+            5
+          ]
+        }
+      ],
+      "is_volatile": false
+    },
+    "TEMP_SALES_DATA": {
+      "source": [
+        {
+          "name": "DEMO.PRODUCT_V",
+          "operation": [
+            0
+          ]
+        },
+        {
+          "name": "DEMO.SALES_FACT",
+          "operation": [
+            0
+          ]
+        }
+      ],
+      "target": [
+        {
+          "name": "DEMO.PRODUCT_SUMMARY",
+          "operation": [
+            2
+          ]
+        },
+        {
+          "name": "DEMO.PRODUCT_DETAILS",
+          "operation": [
+            3
+          ]
+        },
+        {
+          "name": "DEMO.SALES_REPORTING",
+          "operation": [
+            4
+          ]
+        }
+      ],
+      "is_volatile": true
+    }
+  },
+  "warnings": []
+}

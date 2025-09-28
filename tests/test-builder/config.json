@@ -1,0 +1,18 @@
+{
+    "output_volume": "/Volumes/harry_du_unittest/default/demo_test_data_generated",
+    "definitions_volume": "/Volumes/harry_du_unittest/default/demo_test_data",
+    "target_catalog": "harry_du",
+    "unit_test_catalog": "harry_du_unittest",
+    "src_dir": "samples",
+    "tests": [
+        {
+            "enabled": true,
+            "test_name": "test_basic",
+            "folder": ".",
+            "script": "sample",
+            "filter_resolution": []
+        } 
+
+
+    ]
+}

@@ -1,0 +1,2 @@
+sale_id,product_id,sale_date,quantity,unit_price,total_amount,region_id,channel_id
+S001,P001,2024-11-01,2,1500.00,3000.00,NA,ONLINE

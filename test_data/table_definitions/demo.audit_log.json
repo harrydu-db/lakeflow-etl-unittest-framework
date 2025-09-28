@@ -1,0 +1,35 @@
+{
+  "table_name": "audit_log",
+  "catalog": "demo",
+  "columns": [
+    {
+      "name": "process_name",
+      "type": "StringType()",
+      "nullable": true
+    },
+    {
+      "name": "table_name",
+      "type": "StringType()",
+      "nullable": true
+    },
+    {
+      "name": "record_count",
+      "type": "LongType()",
+      "nullable": true
+    },
+    {
+      "name": "process_date",
+      "type": "DateType()",
+      "nullable": true
+    },
+    {
+      "name": "status",
+      "type": "StringType()",
+      "nullable": true
+    }
+  ],
+  "object_type": "table",
+  "database": "demo",
+  "full_name": "harry_du.demo.audit_log",
+  "isView": false
+}

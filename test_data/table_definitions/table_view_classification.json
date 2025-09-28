@@ -1,0 +1,18 @@
+{
+  "tables": [
+    "demo.product_details",
+    "demo.region",
+    "demo.sales_reporting",
+    "demo.sales_fact",
+    "demo.category",
+    "demo.audit_log",
+    "demo.sales_channel",
+    "demo.product_summary"
+  ],
+  "views": [
+    "demo.product_v"
+  ],
+  "processed_at": "2025-09-26T15:53:10.711093",
+  "catalog": "harry_du",
+  "total_objects": 9
+}

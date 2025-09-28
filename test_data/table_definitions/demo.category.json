@@ -1,0 +1,20 @@
+{
+  "table_name": "category",
+  "catalog": "demo",
+  "columns": [
+    {
+      "name": "category_code",
+      "type": "StringType()",
+      "nullable": true
+    },
+    {
+      "name": "category_name",
+      "type": "StringType()",
+      "nullable": true
+    }
+  ],
+  "object_type": "table",
+  "database": "demo",
+  "full_name": "harry_du.demo.category",
+  "isView": false
+}

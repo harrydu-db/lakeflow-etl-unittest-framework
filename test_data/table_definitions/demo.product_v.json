@@ -1,0 +1,25 @@
+{
+  "table_name": "product_v",
+  "catalog": "demo",
+  "columns": [
+    {
+      "name": "product_id",
+      "type": "StringType()",
+      "nullable": true
+    },
+    {
+      "name": "product_name",
+      "type": "StringType()",
+      "nullable": true
+    },
+    {
+      "name": "category",
+      "type": "StringType()",
+      "nullable": true
+    }
+  ],
+  "object_type": "view",
+  "database": "demo",
+  "full_name": "harry_du.demo.product_v",
+  "isView": true
+}

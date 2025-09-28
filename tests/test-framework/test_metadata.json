@@ -1,0 +1,16 @@
+{
+    "src_dir": "samples",
+    "test_data_volume": "/Volumes/harry_du_unittest/default/demo_test_data",
+    "schemas": [
+        "demo"
+    ],    
+    "enabled_tests": [
+        {
+            "script": "sample",
+            "folder": ".",
+            "tests": [
+                "test_basic"
+            ]
+        } 
+    ]
+}

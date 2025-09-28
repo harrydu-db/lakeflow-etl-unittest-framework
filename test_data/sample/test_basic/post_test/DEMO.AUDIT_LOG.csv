@@ -1,0 +1,2 @@
+process_name,table_name,record_count,process_date,status
+SALES_ETL,DEMO.SALES_REPORTING,1,2025-09-28,COMPLETED

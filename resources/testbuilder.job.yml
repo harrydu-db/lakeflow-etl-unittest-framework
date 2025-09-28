@@ -1,0 +1,13 @@
+resources:
+  jobs:
+    test_builder:
+      name: test_builder
+      tags:
+        scope: "unittest-framework"    
+      tasks:
+      - task_key: run_test
+        notebook_task:
+          notebook_path: ../tests/test-builder/TestBuilderRunner.py
+        disable_auto_optimization: true
+        existing_cluster_id: ${var.cluster_id}
+  

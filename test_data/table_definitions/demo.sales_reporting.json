@@ -1,0 +1,50 @@
+{
+  "table_name": "sales_reporting",
+  "catalog": "demo",
+  "columns": [
+    {
+      "name": "report_date",
+      "type": "DateType()",
+      "nullable": true
+    },
+    {
+      "name": "product_id",
+      "type": "StringType()",
+      "nullable": true
+    },
+    {
+      "name": "product_name",
+      "type": "StringType()",
+      "nullable": true
+    },
+    {
+      "name": "category_name",
+      "type": "StringType()",
+      "nullable": true
+    },
+    {
+      "name": "sale_count",
+      "type": "LongType()",
+      "nullable": true
+    },
+    {
+      "name": "total_revenue",
+      "type": "DecimalType(18,2)",
+      "nullable": true
+    },
+    {
+      "name": "region",
+      "type": "StringType()",
+      "nullable": true
+    },
+    {
+      "name": "sales_channel",
+      "type": "StringType()",
+      "nullable": true
+    }
+  ],
+  "object_type": "table",
+  "database": "demo",
+  "full_name": "harry_du.demo.sales_reporting",
+  "isView": false
+}

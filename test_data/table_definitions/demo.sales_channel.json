@@ -1,0 +1,20 @@
+{
+  "table_name": "sales_channel",
+  "catalog": "demo",
+  "columns": [
+    {
+      "name": "channel_id",
+      "type": "StringType()",
+      "nullable": true
+    },
+    {
+      "name": "channel_name",
+      "type": "StringType()",
+      "nullable": true
+    }
+  ],
+  "object_type": "table",
+  "database": "demo",
+  "full_name": "harry_du.demo.sales_channel",
+  "isView": false
+}

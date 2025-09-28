@@ -1,0 +1,22 @@
+resources:
+  jobs:
+    unittest_debmo:
+      name: unittest_debmo
+      trigger:
+        pause_status: PAUSED
+        periodic:
+          interval: 1
+          unit: DAYS
+      max_concurrent_runs: 5
+      tasks:
+        - task_key: sample
+          notebook_task:
+            notebook_path: ../samples/sample.sql
+          disable_auto_optimization: true 
+      tags:
+        scope: "unittest-framework"
+      queue:
+        enabled: true
+      parameters:
+        - name: catalog
+          default: ${var.catalog}

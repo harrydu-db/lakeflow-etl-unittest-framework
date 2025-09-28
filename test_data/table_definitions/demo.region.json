@@ -1,0 +1,20 @@
+{
+  "table_name": "region",
+  "catalog": "demo",
+  "columns": [
+    {
+      "name": "region_id",
+      "type": "StringType()",
+      "nullable": true
+    },
+    {
+      "name": "region_name",
+      "type": "StringType()",
+      "nullable": true
+    }
+  ],
+  "object_type": "table",
+  "database": "demo",
+  "full_name": "harry_du.demo.region",
+  "isView": false
+}

@@ -1,0 +1,30 @@
+{
+  "sample": {
+    "tables": [
+      "DEMO.AUDIT_LOG",
+      "DEMO.CATEGORY",
+      "DEMO.PRODUCT_DETAILS",
+      "DEMO.PRODUCT_SUMMARY",
+      "DEMO.REGION",
+      "DEMO.SALES_FACT",
+      "DEMO.SALES_REPORTING"
+    ],
+    "views": [
+      "DEMO.PRODUCT_V"
+    ],
+    "update_tables": [
+      "DEMO.AUDIT_LOG",
+      "DEMO.PRODUCT_DETAILS",
+      "DEMO.PRODUCT_SUMMARY",
+      "DEMO.SALES_REPORTING"
+    ],
+    "reference_tables": [
+      "DEMO.CATEGORY",
+      "DEMO.PRODUCT_DETAILS",
+      "DEMO.PRODUCT_SUMMARY",
+      "DEMO.REGION",
+      "DEMO.SALES_FACT",
+      "DEMO.SALES_REPORTING"
+    ]
+  }
+}

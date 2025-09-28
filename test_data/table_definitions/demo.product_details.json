@@ -1,0 +1,50 @@
+{
+  "table_name": "product_details",
+  "catalog": "demo",
+  "columns": [
+    {
+      "name": "product_id",
+      "type": "StringType()",
+      "nullable": true
+    },
+    {
+      "name": "product_name",
+      "type": "StringType()",
+      "nullable": true
+    },
+    {
+      "name": "category",
+      "type": "StringType()",
+      "nullable": true
+    },
+    {
+      "name": "sale_count",
+      "type": "LongType()",
+      "nullable": true
+    },
+    {
+      "name": "total_revenue",
+      "type": "DecimalType(18,2)",
+      "nullable": true
+    },
+    {
+      "name": "created_date",
+      "type": "DateType()",
+      "nullable": true
+    },
+    {
+      "name": "last_updated",
+      "type": "TimestampType()",
+      "nullable": true
+    },
+    {
+      "name": "product_status",
+      "type": "StringType()",
+      "nullable": true
+    }
+  ],
+  "object_type": "table",
+  "database": "demo",
+  "full_name": "harry_du.demo.product_details",
+  "isView": false
+}

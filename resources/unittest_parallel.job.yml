@@ -1,0 +1,18 @@
+resources:
+  jobs:
+    unittest_parallel:
+      name: unittest_parallel
+      tags:
+        scope: "unittest-framework"
+      parameters:
+        - name: unittest_catalog
+          default: ${var.unittest_catalog} 
+        - name: max_workers
+          default: ${var.max_workers}
+      tasks:
+      - task_key: run_test
+        notebook_task:
+          notebook_path: ../tests/test-framework/TestRunnerParallel.py
+        disable_auto_optimization: true
+        existing_cluster_id: ${var.cluster_id}
+  

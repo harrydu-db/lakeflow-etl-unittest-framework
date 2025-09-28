@@ -1,0 +1,50 @@
+{
+  "table_name": "sales_fact",
+  "catalog": "demo",
+  "columns": [
+    {
+      "name": "sale_id",
+      "type": "StringType()",
+      "nullable": true
+    },
+    {
+      "name": "product_id",
+      "type": "StringType()",
+      "nullable": true
+    },
+    {
+      "name": "sale_date",
+      "type": "DateType()",
+      "nullable": true
+    },
+    {
+      "name": "quantity",
+      "type": "LongType()",
+      "nullable": true
+    },
+    {
+      "name": "unit_price",
+      "type": "DecimalType(18,2)",
+      "nullable": true
+    },
+    {
+      "name": "total_amount",
+      "type": "DecimalType(18,2)",
+      "nullable": true
+    },
+    {
+      "name": "region_id",
+      "type": "StringType()",
+      "nullable": true
+    },
+    {
+      "name": "channel_id",
+      "type": "StringType()",
+      "nullable": true
+    }
+  ],
+  "object_type": "table",
+  "database": "demo",
+  "full_name": "harry_du.demo.sales_fact",
+  "isView": false
+}

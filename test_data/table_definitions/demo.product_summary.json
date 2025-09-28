@@ -1,0 +1,30 @@
+{
+  "table_name": "product_summary",
+  "catalog": "demo",
+  "columns": [
+    {
+      "name": "product_id",
+      "type": "StringType()",
+      "nullable": true
+    },
+    {
+      "name": "sale_count",
+      "type": "LongType()",
+      "nullable": true
+    },
+    {
+      "name": "total_revenue",
+      "type": "DecimalType(18,2)",
+      "nullable": true
+    },
+    {
+      "name": "last_updated",
+      "type": "TimestampType()",
+      "nullable": true
+    }
+  ],
+  "object_type": "table",
+  "database": "demo",
+  "full_name": "harry_du.demo.product_summary",
+  "isView": false
+}

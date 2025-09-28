@@ -1,0 +1,57 @@
+bundle:
+  name: lakeflow-etl-unittest-framework
+
+include:
+  - resources/unittest.job.yml
+  - resources/testbuilder.job.yml
+  - resources/unittest_parallel.job.yml
+  - resources/sample.jobs.yml
+
+sync:
+  exclude:
+    - old/
+    - .ci/
+    - .databricks/
+    - .gitignore
+    - .git/
+    - .venv/
+    - .vscode/
+    - .DS_Store
+    - build/
+    - dist/
+    - test_data/
+    - tools/
+    - tmp/
+    - test_data_generated/
+
+variables:
+  client_id:
+    description: The Databricks service principal client ID
+  catalog:
+    description: The catalog
+  cluster_id:
+    description: Cluster to use    
+  unittest_catalog:
+    description: Catalog to be used for unit test
+  max_workers:
+    description: Maximum number of workers to use for parallel tests
+targets:
+  dev:
+    # The default target uses 'mode: development' to create a development copy.
+    # - Deployed resources get prefixed with '[dev my_user_name]'
+    # - Any job schedules and triggers are paused by default.
+    # See also https://docs.databricks.com/dev-tools/bundles/deployment-modes.html.
+    mode: development
+    default: true
+    workspace:
+      host: https://e2-dogfood.staging.cloud.databricks.com
+    variables:
+      catalog: harry_du
+      cluster_id: 0921-164753-hgip6w2m
+      unittest_catalog: harry_du_unittest
+      max_workers: 4
+      client_id: not_needed
+    permissions:
+      - user_name: harry.du@databricks.com
+        level: CAN_MANAGE     
+

@@ -1,0 +1,35 @@
+{
+  "script_name": "DEMO.PRODUCT_V.sql",
+  "parser_version": "SQLGlot",
+  "bteq_statements": [
+    "CREATE VIEW IF NOT EXISTS DEMO.PRODUCT_V AS\nSELECT product_id,\n       product_name,\n       category\nFROM DEMO.PRODUCT_DETAILS;"
+  ],
+  "tables": {
+    "DEMO.PRODUCT_DETAILS": {
+      "source": [],
+      "target": [
+        {
+          "name": "DEMO.PRODUCT_V",
+          "operation": [
+            0
+          ]
+        }
+      ],
+      "is_volatile": false
+    },
+    "DEMO.PRODUCT_V": {
+      "source": [
+        {
+          "name": "DEMO.PRODUCT_DETAILS",
+          "operation": [
+            0
+          ]
+        }
+      ],
+      "target": [],
+      "is_volatile": false,
+      "is_view": true
+    }
+  },
+  "warnings": []
+}

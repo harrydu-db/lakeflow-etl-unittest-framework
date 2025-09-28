@@ -1,0 +1,13 @@
+
+# Target Configuration
+target:
+  profile: dogfood  # Databricks CLI profile for target workspace
+  volume: /Volumes/harry_du_unittest/default/demo_test_data
+
+source:
+  profile: dogfood  # Databricks CLI profile for source workspace
+  volume: /Volumes/harry_du_unittest/default/demo_test_data_generated
+  local_path: ./test_data_generated
+
+
+ 

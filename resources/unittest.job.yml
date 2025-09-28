@@ -1,0 +1,18 @@
+resources:
+  jobs:
+    unittest:
+      name: unittest
+      tags:
+        scope: "unittest-framework"
+      parameters:
+        - name: unittest_catalog
+          default: ${var.unittest_catalog}      
+        - name: mock_current_timestamp
+          default: "2025-09-25 00:00:00"
+      tasks:
+      - task_key: run_test
+        notebook_task:
+          notebook_path: ../tests/test-framework/TestRunner.py
+        disable_auto_optimization: true
+        existing_cluster_id: ${var.cluster_id}
+  
