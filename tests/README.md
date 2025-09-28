@@ -4,10 +4,11 @@ This directory contains a comprehensive test suite for validating ETL jobs using
 
 ## Overview
 
-The test suite consists of two main components that work together to provide comprehensive testing capabilities:
+The test suite consists of three main components that work together to provide comprehensive testing capabilities:
 
 1. **`test-framework/`** - Core test framework for unit testing ETL jobs
 2. **`test-builder/`** - Automated test data generation system
+3. **`utils/`** - Utility scripts and tools for test data management and configuration
 
 ## Components
 
@@ -31,6 +32,17 @@ The test builder provides automated test data generation capabilities that work 
 - **Test Data Management**: Generates both pre-test and post-test data for comprehensive validation
 
 For detailed documentation on the test builder, see [test-builder/README.md](test-builder/README.md).
+
+### Utilities (`utils/`)
+
+The utilities provide essential tools for test data management, metadata generation, and configuration:
+
+- **Test Data Management**: Upload and download test data to/from Databricks volumes
+- **Metadata Generation**: Generate script metadata from lineage analysis
+- **Configuration Management**: Handle YAML-based configuration files
+- **Data Consolidation**: Consolidate and process script metadata
+
+For detailed documentation on the utilities, see [utils/README.md](utils/README.md).
 
 ## Quick Start
 
@@ -111,10 +123,12 @@ The test suite supports two main workflows:
 
 ## Complete ETL Testing Pipeline
 
-The test-framework and test-builder are part of the Databricks Asset Bundle (DAB). When deployed using `databricks bundle deploy`, two jobs are created:
+The test-framework and test-builder are part of the Databricks Asset Bundle (DAB). When deployed using `databricks bundle deploy`, four jobs are created:
 
 - **test-builder job**: Generates test data using the test-builder components
 - **unittest job**: Executes ETL job tests using the test framework
+- **unittest_parallel job**: Runs tests in parallel for better performance
+- **unittest_debmo job**: Sample ETL job demonstrating framework capabilities
 
 ## Additional Resources
 
@@ -131,7 +145,7 @@ The test-framework and test-builder are part of the Databricks Asset Bundle (DAB
 
 - [Test Framework Documentation](test-framework/README.md) - Detailed documentation for the core test framework
 - [Test Builder Documentation](test-builder/README.md) - Detailed documentation for automated test data generation
-- [Utils Documentation](utils/) - Documentation for utility scripts and tools
+- [Utilities Documentation](utils/README.md) - Documentation for utility scripts and tools
 
 ## Support
 

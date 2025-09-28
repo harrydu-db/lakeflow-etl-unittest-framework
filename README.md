@@ -1,6 +1,6 @@
 # LakeFlow ETL Unit Test Framework
 
-A comprehensive testing framework, test builder, and sample code to demonstrate automated ETL testing capabilities for Databricks environments. This framework provides end-to-end testing solutions for ETL jobs with automated test data generation, execution, and validation.
+A comprehensive testing framework, test builder, and utilities to demonstrate automated ETL testing capabilities for Databricks environments. This framework provides end-to-end testing solutions for ETL jobs with automated test data generation, execution, and validation.
 
 ## 🎯 Overview
 
@@ -8,7 +8,7 @@ The LakeFlow ETL Unit Test Framework is designed to streamline and automate the 
 
 1. **Test Framework** - Core testing infrastructure for ETL job validation
 2. **Test Builder** - Automated test data generation system  
-3. **Sample Code** - Example implementations and demonstrations
+3. **Utilities** - Utility scripts and tools for test data management and configuration
 
 The framework integrates with the [lineage-analyzer](https://github.com/harrydu-db/lineage-analyzer) project to automatically generate test metadata from SQL lineage analysis, enabling intelligent test data generation and comprehensive ETL validation.
 
@@ -47,6 +47,12 @@ lakeflow-etl-unittest-framework/
 - **Teradata SQL Examples**: Complete examples of Teradata SQL code with DDL
 - **Lineage Analysis**: Pre-generated lineage JSON files using the lineage-analyzer
 - **Test Data**: Sample test cases demonstrating framework capabilities
+
+### Utilities
+- **Test Data Management**: Upload and download test data to/from Databricks volumes
+- **Metadata Generation**: Generate script metadata from lineage analysis
+- **Configuration Management**: Handle YAML-based configuration files
+- **Data Consolidation**: Consolidate and process script metadata
 
 ## 📋 Prerequisites
 
@@ -91,6 +97,7 @@ This creates the following jobs in your Databricks workspace:
 - **test-builder job**: Generates test data using the test-builder components
 - **unittest job**: Executes ETL job tests using the test framework
 - **unittest_parallel job**: Runs tests in parallel for better performance
+- **unittest_debmo job**: Sample ETL job demonstrating framework capabilities
 
 ### 2. Upload Test Data
 
@@ -119,6 +126,7 @@ python tests/test-framework/TestRunner.py
 - **[Test Framework Documentation](tests/test-framework/README.md)** - Detailed documentation for the core test framework
 - **[Test Builder Documentation](tests/test-builder/README.md)** - Detailed documentation for automated test data generation
 - **[Test Suite Overview](tests/README.md)** - Complete overview of the testing capabilities
+- **[Utilities Documentation](tests/utils/README.md)** - Documentation for utility scripts and tools
 
 ### Key Features
 
