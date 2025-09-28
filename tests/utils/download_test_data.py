@@ -5,7 +5,7 @@ Supports downloading individual files or entire directories.
 
 Usage:
     python download_test_data.py                           # Download entire source volume to local folder
-    python download_test_data.py LCM_Logic/test_explode    # Download only LCM_Logic/test_explode folder
+    python download_test_data.py sample/test_basic         # Download only sample/test_basic folder
     python download_test_data.py table_definitions         # Download only table_definitions folder
     python download_test_data.py table_definitions/file.json # Download specific file
 """
@@ -156,7 +156,7 @@ def download_from_volume(source_volume_path: str, local_path: str, profile: str 
         source_volume_path: Source path in Databricks volume
         local_path: Local directory path to download to
         profile: Databricks CLI profile to use (optional)
-        subpath: Optional subpath within the volume to download (e.g., 'LCM_Logic/test_explode' or 'table_definitions/file.json')
+        subpath: Optional subpath within the volume to download (e.g., 'sample/test_basic' or 'table_definitions/file.json')
         
     Returns:
         True if download was successful, False otherwise
@@ -401,7 +401,7 @@ def main():
         epilog="""
 Examples:
   %(prog)s                           # Download entire source volume to local folder
-  %(prog)s LCM_Logic/test_explode    # Download only LCM_Logic/test_explode folder
+  %(prog)s sample/test_basic         # Download only sample/test_basic folder
   %(prog)s table_definitions         # Download only table_definitions folder
   %(prog)s table_definitions/file.json # Download specific file
         """
@@ -409,7 +409,7 @@ Examples:
     parser.add_argument(
         'subpath',
         nargs='?',
-        help='Optional subpath within source volume to download (e.g., LCM_Logic/test_explode or table_definitions/file.json)'
+        help='Optional subpath within source volume to download (e.g., sample/test_basic or table_definitions/file.json)'
     )
     
     args = parser.parse_args()

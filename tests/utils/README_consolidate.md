@@ -38,25 +38,25 @@ The consolidated JSON file contains the following fields:
 ```json
 {
   "tables": [
-    "BIZT.BIZT_BATCHTRACK",
-    "LOTMASTER_BASE_T.LOT",
-    "TAS_CORE.CORE_MATERIAL"
+    "SCHEMA1.TABLE_A",
+    "SCHEMA2.TABLE_B",
+    "SCHEMA3.TABLE_C"
   ],
   "views": [
-    "BIZT.BIZT_BATCHTRACK_V",
-    "LOTMASTER.LOT_SO_DTL",
-    "REFERENCE.MATERIAL"
+    "SCHEMA1.TABLE_A_V",
+    "SCHEMA2.TABLE_B_V",
+    "REFERENCE.TABLE_D"
   ],
   "reference_tables": [
-    "BIZT.BIZT_BATCHTRACK",
-    "TAS_CORE.CORE_MATERIAL"
+    "SCHEMA1.TABLE_A",
+    "SCHEMA3.TABLE_C"
   ],
   "updated_tables": [
-    "LOTMASTER_BASE_T.LOT"
+    "SCHEMA2.TABLE_B"
   ],
   "reference_only_tables": [
-    "BIZT.BIZT_BATCHTRACK",
-    "TAS_CORE.CORE_MATERIAL"
+    "SCHEMA1.TABLE_A",
+    "SCHEMA3.TABLE_C"
   ]
 }
 ```

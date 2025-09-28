@@ -6,7 +6,7 @@ Supports uploading individual files or entire directories.
 
 Usage:
     python upload_test_data.py                           # Upload entire test_data folder (always overwrites destination)
-    python upload_test_data.py LCM_Logic/test_explode    # Upload only LCM_Logic/test_explode folder (always overwrites destination)
+    python upload_test_data.py sample/test_basic         # Upload only sample/test_basic folder (always overwrites destination)
     python upload_test_data.py table_definitions         # Upload only table_definitions folder (always overwrites destination)
     python upload_test_data.py table_definitions/file.json # Upload specific file (always overwrites destination)
 """
@@ -218,7 +218,7 @@ def upload_test_data_to_volume(local_path: str, target_volume_path: str, profile
         local_path: Local path containing test_data to upload
         target_volume_path: Path in Databricks volume
         profile: Databricks CLI profile to use (optional)
-        path: Optional path within test_data to upload (e.g., 'LCM_Logic/test_explode' or 'table_definitions/file.json')
+        path: Optional path within test_data to upload (e.g., 'sample/test_basic' or 'table_definitions/file.json')
     """
     # Handle path parameter
     if path:
@@ -345,7 +345,7 @@ def main():
         epilog="""
 Examples:
   %(prog)s                           # Upload entire test_data folder (always overwrites destination)
-  %(prog)s LCM_Logic/test_explode    # Upload only LCM_Logic/test_explode folder (always overwrites destination)
+  %(prog)s sample/test_basic         # Upload only sample/test_basic folder (always overwrites destination)
   %(prog)s table_definitions         # Upload only table_definitions folder (always overwrites destination)
   %(prog)s table_definitions/file.json # Upload specific file (always overwrites destination)
         """
@@ -353,7 +353,7 @@ Examples:
     parser.add_argument(
         'path',
         nargs='?',
-        help='Optional path within test_data to upload (e.g., LCM_Logic/test_explode or table_definitions/file.json)'
+        help='Optional path within test_data to upload (e.g., sample/test_basic or table_definitions/file.json)'
     )
     
     args = parser.parse_args()
