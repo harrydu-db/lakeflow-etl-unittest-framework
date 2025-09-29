@@ -94,6 +94,8 @@ The `test_data/` folder contains the test cases and definitions needed for runni
   - **`pre_test/`** - Input data (CSV files) before ETL job execution
   - **`post_test/`** - Expected output data (CSV files) after ETL job execution
 
+The view_definitions and table_definitions can be downloaded using this tool: [databricks-extractor](https://github.com/harrydu-db/databricks-extractor)
+
 #### Upload and Run Tests
 
 ```bash
